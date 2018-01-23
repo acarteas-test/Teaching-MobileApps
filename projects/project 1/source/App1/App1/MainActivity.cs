@@ -18,17 +18,14 @@ namespace App1
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
-
-            button.Click += Button_Click;
-
+            Button button = FindViewById<Button>(Resource.Id.clickMeButton);
+            button.AfterTextChanged += DoSomethingWithButton;
             button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
         }
 
-        private void Button_Click(object sender, System.EventArgs e)
+        private void DoSomethingWithButton(object sender, Android.Text.AfterTextChangedEventArgs e)
         {
-            TextView tv = FindViewById<TextView>(Resource.Id.textView1);
-            tv.Text += "a";
+
         }
     }
 }
